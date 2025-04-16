@@ -1,0 +1,24 @@
+[test-api]
+name = "get-user-api-component"
+description = "Getting user api component"
+type = "REST API"
+url = "$api-repogitory/fuction.toml"
+size = 2048
+method = "post"
+author = "akim muto"
+creation_date = 2025-03-15
+last_updated_by = "test"
+last_updated_date = 2025-03-15
+status = "dev_local"
+version = "v0.0.1"
+license = "MIT"
+access_level = "Internal"
+thumbnail_url = "https://example.com/assets/api-thumbnail.png"
+checksum = "aaaaaa"
+file_format = "toml"
+metadata = "[aaaa]\naaa=\"\bbbb\""
+tags = [
+    "api",
+    "get_user",
+    "function_config_file"
+]

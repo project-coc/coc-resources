@@ -1,0 +1,12 @@
+[package]
+name = "coc-resources"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "coc-r"
+path = "src/main.rs"        # ソースファイルのパス
+
+[dependencies]
+clap = { version = "4.5.36", features = ["derive"] }
+toml_edit = "0.22.24"
