@@ -13,6 +13,11 @@ Run tests with:
 cargo test
 ```
 
+## Documentation
+
+- [Specification](SPECIFICATION.md) - full summary of coc-resource v1.3
+- [Development Roadmap](ROADMAP.md) - module tasks and completion criteria
+
 ## Command line usage
 
 Build and run the CLI to parse a file:
