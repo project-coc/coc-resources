@@ -204,8 +204,8 @@ author = "akim"
 coverage = 0.92
 
 [タグ]
-auth = ""
-rust = ""
+tag1 = "赤"
+tag2 = "白"
 :::RESOURCE-END
 */
 ```
@@ -218,8 +218,8 @@ rust = ""
 タイプ = "doc"
 
 [タグ]
-database = ""
-erd = ""  # entity-relationship-diagram
+tag1 = "リンゴ"
+tag2 = "みかん"
 :::RESOURCE-END
 """
 ```
