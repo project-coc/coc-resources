@@ -28,6 +28,9 @@ test = ""
         let doc = parse(&blocks[0].body).unwrap();
         let res = Resource::from_toml(doc, std::path::Path::new("a.txt"), blocks[0].start_line, blocks[0].end_line);
         assert_eq!(res.name, "x");
+        assert_eq!(res.tags.len(), 1);
+        assert_eq!(res.tags[0].tag, "test");
+        assert!(res.tags[0].description.is_none());
     }
 
     #[test]
