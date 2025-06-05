@@ -12,3 +12,9 @@ Run tests with:
 ```bash
 cargo test
 ```
+
+## Documentation
+
+- [Specification](SPECIFICATION.md) - full summary of coc-resource v1.3
+- [Development Roadmap](ROADMAP.md) - module tasks and completion criteria
+
