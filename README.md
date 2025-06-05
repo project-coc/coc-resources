@@ -12,3 +12,11 @@ Run tests with:
 ```bash
 cargo test
 ```
+
+## Command line usage
+
+Build and run the CLI to parse a file:
+
+```bash
+cargo run -- parse example.rs
+```

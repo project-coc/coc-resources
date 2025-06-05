@@ -17,3 +17,7 @@ anyhow = "1"
 thiserror = "1"
 tracing = "0.1"
 bytecount = "0.6"
+
+[[bin]]
+name = "coc-resources"
+path = "src/main.rs"
