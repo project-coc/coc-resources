@@ -11,6 +11,7 @@ pub struct Resource {
     pub name: String,
     pub summary: String,
     pub r#type: ResType,
+    pub tags: Vec<Tag>,
 }
 
 impl Resource {
@@ -26,6 +27,24 @@ impl Resource {
             "test" => ResType::Test,
             _ => ResType::Other,
         };
+        let tags = doc
+            .get("タグ")
+            .and_then(|item| item.as_table())
+            .map(|tbl| {
+                tbl.iter()
+                    .map(|(k, v)| {
+                        let desc = v
+                            .as_str()
+                            .map(|s| s.to_string())
+                            .and_then(|s| if s.is_empty() { None } else { Some(s) });
+                        Tag {
+                            tag: k.to_string(),
+                            description: desc,
+                        }
+                    })
+                    .collect::<Vec<_>>()
+            })
+            .unwrap_or_default();
         Resource {
             path: path.to_path_buf(),
             line_start: start,
@@ -33,6 +52,7 @@ impl Resource {
             name,
             summary,
             r#type,
+            tags,
         }
     }
 }
