@@ -58,4 +58,30 @@ test = ""
         assert_eq!(res.len(), 1);
         assert_eq!(res[0].name, "block");
     }
+
+    #[test]
+    fn line_comment_file_crlf() {
+        let content = "// :::RESOURCE-START\r\n// \"名前\" = \"line\"\r\n// \"概要\" = \"g\"\r\n// \"タイプ\" = \"code\"\r\n// :::RESOURCE-END\r\n";
+        let dir = std::env::temp_dir();
+        let path = dir.join("sample_crlf.rs");
+        let mut file = std::fs::File::create(&path).unwrap();
+        file.write_all(content.as_bytes()).unwrap();
+        let res = parse_file(&path).unwrap();
+        std::fs::remove_file(&path).ok();
+        assert_eq!(res.len(), 1);
+        assert_eq!(res[0].name, "line");
+    }
+
+    #[test]
+    fn block_comment_file_crlf() {
+        let content = "/*\r\n:::RESOURCE-START\r\n\"名前\" = \"block\"\r\n\"概要\" = \"g\"\r\n\"タイプ\" = \"code\"\r\n:::RESOURCE-END\r\n*/";
+        let dir = std::env::temp_dir();
+        let path = dir.join("sample_crlf.c");
+        let mut file = std::fs::File::create(&path).unwrap();
+        file.write_all(content.as_bytes()).unwrap();
+        let res = parse_file(&path).unwrap();
+        std::fs::remove_file(&path).ok();
+        assert_eq!(res.len(), 1);
+        assert_eq!(res[0].name, "block");
+    }
 }
