@@ -8,6 +8,11 @@ pub struct Block {
 }
 
 pub fn extract_blocks(text: &str, style: &Style) -> Vec<Block> {
+    // Normalize line endings so that regex patterns relying on `\n` work
+    // correctly for files with Windows-style CRLF endings.
+    let normalized_text = text.replace("\r\n", "\n").replace('\r', "\n");
+    let text = normalized_text.as_str();
+
     let mut res = Vec::new();
 
     if style.line.is_none() && style.block_start.is_none() {
